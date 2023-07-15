@@ -15,6 +15,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
+      - name: jest cache
+        id: jest-cache
+        uses: actions/cache@v3
+        with:
+          path: ./jest
+          key: jest-cache-${{ github.head_ref }}
+          restore-keys: jest-cache-${{ github.head_ref }}
       - name: Run install
         run: npm install
       - name: Run test
