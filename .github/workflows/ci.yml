@@ -19,7 +19,7 @@ jobs:
           node-version: "16"
       - name: jest cache
         id: jest-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ./jest
           key: jest-cache-${{ github.head_ref }}
