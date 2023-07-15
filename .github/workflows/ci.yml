@@ -22,8 +22,8 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ./jest
-          key: jest-cache-${{ GITHUB_REF }}
-          restore-keys: jest-cache-${{ GITHUB_REF }}
+          key: jest-cache-$GITHUB_REF
+          restore-keys: jest-cache-$GITHUB_REF
       - name: Run install
         run: npm install
       - name: Run test
