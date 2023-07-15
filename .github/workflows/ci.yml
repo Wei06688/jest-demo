@@ -11,10 +11,19 @@ jobs:
   coverage:
     runs-on: ubuntu-latest
     steps:
+      - name: more env
+        run: more $GITHUB_EVENT_PATH
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
+      - name: jest cache
+        id: jest-cache
+        uses: actions/cache@v2
+        with:
+          path: ./jest
+          key: jest-cache-${{ GITHUB_REF }}
+          restore-keys: jest-cache-${{ GITHUB_REF }}
       - name: Run install
         run: npm install
       - name: Run test
