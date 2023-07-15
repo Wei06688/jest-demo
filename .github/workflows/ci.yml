@@ -11,8 +11,6 @@ jobs:
   coverage:
     runs-on: ubuntu-latest
     steps:
-      - name: more env
-        run: more $GITHUB_EVENT_PATH
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
